@@ -1,21 +1,15 @@
 package de.raphaelmuesseler.compiler.filereader;
 
-import java.io.InputStream;
+import org.junit.jupiter.api.Test;
 
-public class FileReaderTest extends TestBase {
+public class FileReaderTest {
 
-	public FileReaderTest(String fileName) throws Exception {
-		super(fileName);
-	}
+    @Test
+    public void testFileReader() throws Exception {
+        System.err.println("BEGIN");
+        FileReaderMain test = new FileReaderMain("./src/test/resources/de/raphaelmuesseler/compiler/filereader/fileReader.txt");
+        test.testRun();
+        System.err.println("END");
+    }
 
-	public String executeTest(String input) throws Exception {
-		InputStream inputStream = stringToInputStream(input);
-		FileReaderIntf fileReader = new FileReader(inputStream);
-		String output = new String();
-		while(fileReader.lookAheadChar() != 0) {
-			output += fileReader.lookAheadChar();
-			fileReader.advance();
-		}
-		return output;
-	}
 }
