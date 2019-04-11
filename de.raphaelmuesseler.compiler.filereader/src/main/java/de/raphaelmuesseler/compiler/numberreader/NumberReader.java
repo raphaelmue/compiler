@@ -12,13 +12,9 @@ public class NumberReader implements NumberReaderIntf {
     @Override
     public int getNumber() throws Exception {
         StringBuilder result = new StringBuilder();
-        while (this.fileReader.lookAheadChar() != 10) {
-            if (this.isDigit(this.fileReader.lookAheadChar())) {
-                result.append(this.fileReader.lookAheadChar());
-                this.fileReader.advance();
-            } else {
-                throw new Exception("not a number");
-            }
+        while (this.fileReader.lookAheadChar() != 10 && this.isDigit(this.fileReader.lookAheadChar())) {
+            result.append(this.fileReader.lookAheadChar());
+            this.fileReader.advance();
         }
         if (result.toString().isEmpty()) {
             throw new Exception("not a number");
@@ -29,5 +25,10 @@ public class NumberReader implements NumberReaderIntf {
     @Override
     public boolean isDigit(char c) {
         return ((int) c) >= 48 && ((int) c) <= 57;
+    }
+
+    @Override
+    public FileReaderIntf getFileReader() {
+        return fileReader;
     }
 }

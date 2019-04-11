@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 public class FileReader implements FileReaderIntf {
     private final InputStream inputStream;
-    private char lookAheadChar = 0;
+    private char lookAheadChar;
 
     public FileReader(InputStream inputStream) throws IOException {
         this.inputStream = inputStream;

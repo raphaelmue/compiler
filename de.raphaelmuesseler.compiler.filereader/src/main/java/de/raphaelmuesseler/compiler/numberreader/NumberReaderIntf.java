@@ -1,5 +1,7 @@
 package de.raphaelmuesseler.compiler.numberreader;
 
+import de.raphaelmuesseler.compiler.filereader.FileReaderIntf;
+
 public interface NumberReaderIntf {
 
 	// create a NumberReader for the given fileReader
@@ -10,5 +12,7 @@ public interface NumberReaderIntf {
 
 	// is given character a digit 0..9
 	boolean isDigit(char c);
+
+	FileReaderIntf getFileReader();
 
 }
