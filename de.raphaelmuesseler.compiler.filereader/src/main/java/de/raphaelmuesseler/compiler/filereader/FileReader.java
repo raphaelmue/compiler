@@ -35,7 +35,7 @@ public class FileReader implements FileReaderIntf {
     @Override
     public void expect(char c) throws Exception {
         if (this.lookAheadChar != c) {
-            throw new Exception("Unexpected character: " + this.lookAheadChar);
+            throw new Exception("Unexpected character: '" + this.lookAheadChar + "' expected: '" + c + "'");
         }
     }
 }

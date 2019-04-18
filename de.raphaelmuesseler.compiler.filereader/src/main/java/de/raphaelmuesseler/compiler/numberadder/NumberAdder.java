@@ -7,7 +7,7 @@ import de.raphaelmuesseler.compiler.numberreader.NumberReaderIntf;
 public class NumberAdder implements NumberAdderIntf {
     private final NumberReaderIntf numberReader;
 
-    public NumberAdder(FileReaderIntf fileReader) {
+    NumberAdder(FileReaderIntf fileReader) {
         this.numberReader = new NumberReader(fileReader);
     }
 
