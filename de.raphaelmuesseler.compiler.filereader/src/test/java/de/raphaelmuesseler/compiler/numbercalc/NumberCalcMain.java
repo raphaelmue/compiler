@@ -16,8 +16,8 @@ public class NumberCalcMain extends TestBase {
 		FileReaderIntf fileReader = new FileReader(inputStream);
 		String output = new String();
 		NumberCalcIntf numberCalc = new NumberCalc(fileReader);
-		int number = numberCalc.getSum();
-		output += Integer.toString(number);
+		double number = numberCalc.getSum();
+		output += Double.toString(number);
 		output += '\n';
 		return output;
 	}

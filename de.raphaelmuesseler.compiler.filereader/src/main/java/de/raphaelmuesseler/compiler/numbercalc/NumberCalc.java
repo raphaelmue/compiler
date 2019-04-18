@@ -12,18 +12,18 @@ public class NumberCalc implements NumberCalcIntf {
     }
 
     @Override
-    public int getSum() throws Exception {
+    public double getSum() throws Exception {
         return this.getProduct() + this.getSumExpression();
     }
 
     @Override
-    public int getProduct() throws Exception {
+    public double getProduct() throws Exception {
         return this.getFactor() * this.getMultiplicationExpression();
     }
 
     @Override
-    public int getFactor() throws Exception {
-        int factor;
+    public double getFactor() throws Exception {
+        double factor;
         if (this.numberReader.getFileReader().lookAheadChar() == '(') {
             this.numberReader.getFileReader().advance();
             factor = getSum();
@@ -35,20 +35,32 @@ public class NumberCalc implements NumberCalcIntf {
         return factor;
     }
 
-    private int getMultiplicationExpression() throws Exception {
-        int product = 1;
-        while (this.numberReader.getFileReader().lookAheadChar() == '*') {
-            this.numberReader.getFileReader().advance();
-            product *= this.getFactor();
+    private double getMultiplicationExpression() throws Exception {
+        double product = 1;
+        while (this.numberReader.getFileReader().lookAheadChar() == '*' ||
+                this.numberReader.getFileReader().lookAheadChar() == '/') {
+            if (this.numberReader.getFileReader().lookAheadChar() == '*') {
+                this.numberReader.getFileReader().advance();
+                product *= this.getFactor();
+            } else if (this.numberReader.getFileReader().lookAheadChar() == '/') {
+                this.numberReader.getFileReader().advance();
+                product *= 1 / this.getFactor();
+            }
         }
         return product;
     }
 
-    private int getSumExpression() throws Exception {
-        int sum = 0;
-        while (this.numberReader.getFileReader().lookAheadChar() == '+') {
-            this.numberReader.getFileReader().advance();
-            sum += this.getSum();
+    private double getSumExpression() throws Exception {
+        double sum = 0;
+        while (this.numberReader.getFileReader().lookAheadChar() == '+' ||
+                this.numberReader.getFileReader().lookAheadChar() == '-') {
+            if (this.numberReader.getFileReader().lookAheadChar() == '+') {
+                this.numberReader.getFileReader().advance();
+                sum += this.getSum();
+            } else if (this.numberReader.getFileReader().lookAheadChar() == '-') {
+                this.numberReader.getFileReader().advance();
+                sum -= this.getSum();
+            }
         }
         return sum;
     }

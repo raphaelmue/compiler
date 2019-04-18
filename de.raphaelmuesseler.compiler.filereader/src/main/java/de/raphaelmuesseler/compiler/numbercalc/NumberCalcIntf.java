@@ -6,12 +6,12 @@ public interface NumberCalcIntf {
 	// NumberAdderIntf(FileReaderIntf reader)
 	
 	// read sum
-	int getSum() throws Exception;
+	double getSum() throws Exception;
 
 	// read product
-	int getProduct() throws Exception;
+	double getProduct() throws Exception;
 	
 	// read factor
-	int getFactor() throws Exception;
+	double getFactor() throws Exception;
 
 }
