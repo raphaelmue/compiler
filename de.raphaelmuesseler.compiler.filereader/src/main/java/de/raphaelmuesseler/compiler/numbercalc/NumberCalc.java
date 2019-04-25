@@ -28,7 +28,6 @@ public class NumberCalc implements NumberCalcIntf {
             this.numberReader.getFileReader().advance();
             factor = getSum();
             this.numberReader.getFileReader().expect(')');
-            this.numberReader.getFileReader().advance();
         } else {
             factor = this.numberReader.getNumber();
         }

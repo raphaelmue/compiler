@@ -37,5 +37,6 @@ public class FileReader implements FileReaderIntf {
         if (this.lookAheadChar != c) {
             throw new Exception("Unexpected character: '" + this.lookAheadChar + "' expected: '" + c + "'");
         }
+        this.advance();
     }
 }
