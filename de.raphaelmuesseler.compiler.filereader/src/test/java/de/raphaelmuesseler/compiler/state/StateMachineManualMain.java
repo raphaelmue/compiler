@@ -17,7 +17,7 @@ public class StateMachineManualMain {
 		while (fileReader.lookAheadChar() != 0) {
 			stateReader.readState();
 		}
-		String result = StateMachineTest.testWord(stateReader.getStateMap(), args[1], true);
+		String result = StateMachineMain.testWord(stateReader.getStateMap(), args[1], true);
 		System.err.println(result);
 	}
 
