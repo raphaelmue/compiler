@@ -13,7 +13,11 @@ $OUT
 $IN
 (41+17]
 $OUT
-exception: "Unexpected character: ']' expected: ')'"
+exception: "Unexpected character: ']'
+Expected: ')'
+(41+17]
+      ^
+"
 $IN
 41-17
 $OUT

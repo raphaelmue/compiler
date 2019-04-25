@@ -4,18 +4,18 @@ import java.io.InputStream;
 
 public class FileReaderMain extends TestBase {
 
-	public FileReaderMain(String fileName) throws Exception {
+	FileReaderMain(String fileName) throws Exception {
 		super(fileName);
 	}
 
 	public String executeTest(String input) throws Exception {
 		InputStream inputStream = stringToInputStream(input);
 		FileReaderIntf fileReader = new FileReader(inputStream);
-		String output = new String();
+		StringBuilder output = new StringBuilder();
 		while(fileReader.lookAheadChar() != 0) {
-			output += fileReader.lookAheadChar();
+			output.append(fileReader.lookAheadChar());
 			fileReader.advance();
 		}
-		return output;
+		return output.toString();
 	}
 }
