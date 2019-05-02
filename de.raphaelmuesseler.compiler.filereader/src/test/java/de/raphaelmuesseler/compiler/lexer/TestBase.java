@@ -1,4 +1,4 @@
-package test;
+package de.raphaelmuesseler.compiler.lexer;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

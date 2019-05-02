@@ -5,7 +5,7 @@ import de.raphaelmuesseler.compiler.filereader.FileReaderIntf;
 
 import java.io.InputStream;
 
-public class LexerMain extends test.TestBase {
+public class LexerMain extends TestBase {
 
 	public LexerMain(String fileName) throws Exception {
 		super(fileName);
