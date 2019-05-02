@@ -14,9 +14,9 @@ abstract class TokenIntf {
 		ASSIGN,
 	}
 
-	public Type type;
-	public int intValue;
-	public String stringValue;
+	Type m_type;
+	int m_intValue;
+	String m_stringValue;
 
 	// returns a string representation of the current token
 	public abstract String toString();

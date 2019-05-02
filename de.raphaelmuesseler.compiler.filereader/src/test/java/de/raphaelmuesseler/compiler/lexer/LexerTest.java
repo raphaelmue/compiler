@@ -1,27 +1,15 @@
 package de.raphaelmuesseler.compiler.lexer;
 
-import de.raphaelmuesseler.compiler.filereader.FileReader;
-import de.raphaelmuesseler.compiler.filereader.FileReaderIntf;
+import org.junit.jupiter.api.Test;
 
-import java.io.InputStream;
+public class LexerTest {
 
-public class LexerTest extends test.TestBase {
-
-	public LexerTest(String fileName) throws Exception {
-		super(fileName);
+	@Test
+	public void testLexer() throws Exception {
+		System.err.println("BEGIN");
+		LexerMain test = new LexerMain("./src/test/resources/de/raphaelmuesseler/compiler/lexer/Lexer.txt");
+		test.testRun();
+		System.err.println("END");
 	}
 
-	public String executeTest(String input) throws Exception {
-		InputStream inputStream = stringToInputStream(input);
-		FileReaderIntf fileReader = new FileReader(inputStream);
-        Lexer lexer = new Lexer(fileReader);
-        Token currentToken;
-        StringBuilder output = new StringBuilder();
-        do {
-        	currentToken = lexer.lookAheadToken();
-        	output.append(currentToken.toString()).append("\n");
-        	lexer.advance();
-        } while (currentToken.type != Token.Type.EOF);
-		return output.toString();
-	}
 }
